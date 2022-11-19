@@ -1,16 +1,17 @@
 package com.hackatum.swipewatcher.ui.main.Backend;
 
+import java.nio.file.Watchable;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class PrioQueue {
-	private PriorityQueue<Watchable> queue;
-	private ArrayList<Watchable> watchlist;
+	private PriorityQueue<MovieObject> queue;
+	private ArrayList<MovieObject> watchlist;
 	private PreferenceList pref;
 
-	public PrioQueue(ArrayList<Watchable> data, PreferenceList list) {
+	public PrioQueue(ArrayList<MovieObject> data, PreferenceList list) {
 		queue = new PriorityQueue<>();
-		for (Watchable watchable : data) {
+		for (MovieObject watchable : data) {
 			watchable.setPriority((int) (Math.random() * 10));
 			queue.add(watchable);
 		}
@@ -20,13 +21,13 @@ public class PrioQueue {
 
 	// adds liked object to watchlist and updates priorities
 	public void like() {
-		Watchable liked = queue.poll();
+		MovieObject liked = queue.poll();
 		watchlist.add(liked);
 		ArrayList<String> actors = liked.getActors();
-		PriorityQueue<Watchable> temp = new PriorityQueue<>();
+		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
 		int size = queue.size();
 		for (int i = 0; i < size; i++) {
-			Watchable current = queue.poll();
+			MovieObject current = queue.poll();
 			ArrayList<String> current_actors = current.getActors();
 			for (String actor : actors) {
 				if (current_actors.contains(actor)) {
@@ -40,12 +41,12 @@ public class PrioQueue {
 
 	// removes element from queue
 	public void dislike() {
-		Watchable disliked = queue.poll();
+		MovieObject disliked = queue.poll();
 		ArrayList<String> actors = disliked.getActors();
-		PriorityQueue<Watchable> temp = new PriorityQueue<>();
+		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
 		int size = queue.size();
 		for (int i = 0; i < size; i++) {
-			Watchable current = queue.poll();
+			MovieObject current = queue.poll();
 			ArrayList<String> current_actors = current.getActors();
 			for (String actor : actors) {
 				if (current_actors.contains(actor)) {
@@ -59,13 +60,13 @@ public class PrioQueue {
 
 	// change preferences
 	public void makePreferences() {
-		PriorityQueue<Watchable> temp = new PriorityQueue<>();
+		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
 		int genre = pref.getGenre();
 		int mov_ser = pref.getMovie_series_whatever();
 		int age = pref.getFsk();
 		int size = queue.size();
 		for (int i = 0; i < size; i++) {
-			Watchable current = queue.poll();
+			MovieObject current = queue.poll();
 			if (current.getFSK() <= age) {
 				temp.add(current);
 			}
@@ -75,19 +76,19 @@ public class PrioQueue {
 	}
 
 	// Getters and Setters
-	public PriorityQueue<Watchable> getQueue() {
+	public PriorityQueue<MovieObject> getQueue() {
 		return queue;
 	}
 
-	public void setQueue(PriorityQueue<Watchable> queue) {
+	public void setQueue(PriorityQueue<MovieObject> queue) {
 		this.queue = queue;
 	}
 
-	public ArrayList<Watchable> getWatchlist() {
+	public ArrayList<MovieObject> getWatchlist() {
 		return watchlist;
 	}
 
-	public void setWatchlist(ArrayList<Watchable> watchlist) {
+	public void setWatchlist(ArrayList<MovieObject> watchlist) {
 		this.watchlist = watchlist;
 	}
 
