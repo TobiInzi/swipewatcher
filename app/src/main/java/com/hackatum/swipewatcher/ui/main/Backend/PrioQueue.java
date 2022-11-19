@@ -1,12 +1,14 @@
 package com.hackatum.swipewatcher.ui.main.Backend;
 
+import android.util.Log;
+
 import java.nio.file.Watchable;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class PrioQueue {
 	private PriorityQueue<MovieObject> queue;
-	private ArrayList<MovieObject> watchlist;
+	private ArrayList<String> watchlist;
 	private PreferenceList pref;
 
 	public PrioQueue(ArrayList<MovieObject> data, PreferenceList list) {
@@ -22,7 +24,7 @@ public class PrioQueue {
 	// adds liked object to watchlist and updates priorities
 	public void like(MovieObject movie) {
 		MovieObject liked = movie;
-		watchlist.add(liked);
+		watchlist.add(liked.getTitle());
 		ArrayList<String> actors = liked.getActors();
 		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
 		int size = queue.size();
@@ -36,6 +38,7 @@ public class PrioQueue {
 			}
 			temp.add(current);
 		}
+		Log.e("test","ololollo");
 		queue = temp;
 	}
 
@@ -81,11 +84,11 @@ public class PrioQueue {
 		this.queue = queue;
 	}
 
-	public ArrayList<MovieObject> getWatchlist() {
+	public ArrayList<String > getWatchlist() {
 		return watchlist;
 	}
 
-	public void setWatchlist(ArrayList<MovieObject> watchlist) {
+	public void setWatchlist(ArrayList<String> watchlist) {
 		this.watchlist = watchlist;
 	}
 
