@@ -80,7 +80,7 @@ public class InfiniteAdapter extends PagerAdapter {
         TextView text2 = view.findViewById(R.id.content_text_2);
         if (true) {
             //text2.setText(old.getDescription());
-            text2.setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore...");
+            text2.setText("Game of thrrones is a very cool series with 2 or 3 actors tbh fsjafjdsajf djg gadsg fg ag asdb fsa fd");
         }
         image = view.findViewById(R.id.content_image);
         image.setImageResource(R.drawable.game_of_thrones);
