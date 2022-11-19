@@ -25,6 +25,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.hackatum.swipewatcher.MainActivity;
 import com.hackatum.swipewatcher.R;
+import com.hackatum.swipewatcher.ui.main.Backend.PrioQueue;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -41,9 +42,6 @@ public class InfiniteAdapter extends PagerAdapter {
     private ImageView backgroundImage;
     private View view;
     private ImageView image;
-    private MovieObject old = MovieObject.getNext();
-    private MovieObject newer;
-    private MovieObject[] tiles = new MovieObject[3];
 
     public InfiniteAdapter(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -54,30 +52,9 @@ public class InfiniteAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater layoutInflater = LayoutInflater.from(mainActivity);
         view = layoutInflater.inflate(R.layout.fragment_content, container, false);
-        old = newer;
-        newer = MovieObject.getNext();
-        if (position % 3 == 0) {
-            tiles[0] = old;
-            tiles[1] = newer;
-            tiles[2] = newer;
-        } else if (position % 3 == 1) {
-            tiles[0] = newer;
-            tiles[1] = old;
-            tiles[2] = newer;
-        } else {
-            tiles[0] = newer;
-            tiles[1] = newer;
-            tiles[2] = old;
-        }
-        TextView text = view.findViewById(R.id.content_text);
-        if (old != null) {
-            text.setText(old.getTitle());
-        }
+
         TextView text2 = view.findViewById(R.id.content_text_2);
-        if (old != null) {
-            //text2.setText(old.getDescription());
-            text2.setText("Game of thrrones is a very cool series with 2 or 3 actors tbh fsjafjdsajf djg gadsg fg ag asdb fsa fd");
-        }
+
         image = view.findViewById(R.id.content_image);
         new DownloadImage().execute("https://i.imgur.com/CQzlM.jpg");
         container.addView(view, 0);

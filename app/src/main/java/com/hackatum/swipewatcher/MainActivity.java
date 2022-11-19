@@ -7,11 +7,18 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.widget.ImageButton;
 
+import com.hackatum.swipewatcher.ui.main.Backend.PreferenceList;
+import com.hackatum.swipewatcher.ui.main.Backend.PrioQueue;
+import com.hackatum.swipewatcher.ui.main.Backend.Watchlist;
 import com.hackatum.swipewatcher.ui.main.MainAdapter;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    public static Watchlist watchlist = new Watchlist();
+    public static PreferenceList preflist = new PreferenceList(0,0,0,"english");
+    //public static PrioQueue queue = new PrioQueue(LoadAllData(),preflist);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
