@@ -20,7 +20,7 @@
             android:minHeight="?actionBarSize"
             android:padding="@dimen/appbar_padding"
             android:text="@string/app_name"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/primary_color_one"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:drawablePadding="10dp"
             app:drawableLeftCompat="@drawable/ic_tv_solid" />
