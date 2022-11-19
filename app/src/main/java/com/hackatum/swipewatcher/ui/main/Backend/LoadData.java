@@ -19,18 +19,17 @@ class MovieObject implements Comparable<MovieObject> {
     private  String otitle;
     private String title;
     private String actors;
-    private String[] actorsArray;
+    private List<String> actorsList;
     private int priority;
     private String id;
     private int serie;
 
-    //TODO
     public MovieObject () {
-        //do something with actors to put them in array
+        this.actorsList = Arrays.stream(actors.split(",")).collect(Collectors.toList());
     }
 
     public ArrayList<String> getActors() {
-        return null;
+        return (ArrayList<String>) actorsList;
     }
 
     public int getFSK() {
