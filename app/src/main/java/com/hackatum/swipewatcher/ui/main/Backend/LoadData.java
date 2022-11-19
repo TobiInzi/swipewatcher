@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 class Watchable implements Comparable<Watchable> {
-    private  String otitle;
+    private String otitle;
     private String title;
     private String actors;
     private String[] actorsArray;

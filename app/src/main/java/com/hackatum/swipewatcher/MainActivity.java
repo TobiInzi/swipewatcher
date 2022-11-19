@@ -29,10 +29,45 @@ public class MainActivity extends AppCompatActivity {
         ImageButton friend = findViewById(R.id.button_double);
         ImageButton settings = findViewById(R.id.button_settings);
         ImageButton list = findViewById(R.id.button_list);
-        tv.setOnClickListener(view -> swiper.setCurrentItem(0));
-        comment.setOnClickListener(view -> swiper.setCurrentItem(1));
-        friend.setOnClickListener(view -> swiper.setCurrentItem(2));
-        list.setOnClickListener(view -> swiper.setCurrentItem(3));
-        settings.setOnClickListener(view -> swiper.setCurrentItem(4));
+        tv.setOnClickListener(view -> {
+            swiper.setCurrentItem(0);
+            tv.setImageResource(R.drawable.ic_tv_solid3);
+            comment.setImageResource(R.drawable.ic_comment_regular);
+            friend.setImageResource(R.drawable.ic_user_group_solid);
+            list.setImageResource(R.drawable.ic_list_solid);
+            settings.setImageResource(R.drawable.ic_gear_solid);
+        });
+        comment.setOnClickListener(view -> {
+            swiper.setCurrentItem(1);
+            tv.setImageResource(R.drawable.ic_tv_solid2);
+            comment.setImageResource(R.drawable.ic_comment_regular3);
+            friend.setImageResource(R.drawable.ic_user_group_solid);
+            list.setImageResource(R.drawable.ic_list_solid);
+            settings.setImageResource(R.drawable.ic_gear_solid);
+        });
+        friend.setOnClickListener(view -> {
+            swiper.setCurrentItem(2);
+            tv.setImageResource(R.drawable.ic_tv_solid2);
+            comment.setImageResource(R.drawable.ic_comment_regular);
+            friend.setImageResource(R.drawable.ic_user_group_solid3);
+            list.setImageResource(R.drawable.ic_list_solid);
+            settings.setImageResource(R.drawable.ic_gear_solid);
+        });
+        list.setOnClickListener(view -> {
+            swiper.setCurrentItem(3);
+            tv.setImageResource(R.drawable.ic_tv_solid2);
+            comment.setImageResource(R.drawable.ic_comment_regular);
+            friend.setImageResource(R.drawable.ic_user_group_solid);
+            list.setImageResource(R.drawable.ic_list_solid3);
+            settings.setImageResource(R.drawable.ic_gear_solid);
+        });
+        settings.setOnClickListener(view -> {
+            swiper.setCurrentItem(4);
+            tv.setImageResource(R.drawable.ic_tv_solid2);
+            comment.setImageResource(R.drawable.ic_comment_regular);
+            friend.setImageResource(R.drawable.ic_user_group_solid);
+            list.setImageResource(R.drawable.ic_list_solid);
+            settings.setImageResource(R.drawable.ic_gear_solid3);
+        });
     }
 }

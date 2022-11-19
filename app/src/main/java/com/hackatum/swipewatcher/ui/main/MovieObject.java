@@ -23,7 +23,7 @@ public class MovieObject implements Comparable {
 
     public static void createObjects() {
         for (int i = 0; i < 1000; i++) {
-            movies.add(new MovieObject(String.valueOf(random.nextInt()), String.valueOf(random.nextInt()), random.nextDouble()));
+            movies.add(new MovieObject(String.valueOf(random.nextInt() % 20), String.valueOf(random.nextInt()), random.nextDouble()));
         }
     }
 
