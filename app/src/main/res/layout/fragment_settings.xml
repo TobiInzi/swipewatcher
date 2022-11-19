@@ -2,6 +2,70 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/first_setting"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        layout="@layout/settings_item"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <include
+        android:id="@+id/second_setting"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        layout="@layout/settings_item"
+        app:layout_constraintTop_toBottomOf="@id/first_setting"
+        />
+    <include
+        android:id="@+id/third_setting"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        layout="@layout/settings_item"
+        app:layout_constraintTop_toBottomOf="@id/second_setting"
+        />
+    <include
+        android:id="@+id/fourth_setting"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        layout="@layout/settings_item"
+        app:layout_constraintTop_toBottomOf="@id/third_setting"
+        />
+    <include
+        android:id="@+id/fifth_setting"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        layout="@layout/settings_item"
+        app:layout_constraintTop_toBottomOf="@id/fourth_setting"
+        />
+    <include
+        android:id="@+id/sixt_setting"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        layout="@layout/settings_item"
+        app:layout_constraintTop_toBottomOf="@id/fifth_setting"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,6 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.widget.ImageButton;
 import com.hackatum.*;
 import com.hackatum.swipewatcher.ui.main.Backend.LoadData;
-import com.hackatum.swipewatcher.ui.main.Backend.MovieObject;
 import com.hackatum.swipewatcher.ui.main.Backend.PreferenceList;
 import com.hackatum.swipewatcher.ui.main.Backend.PrioQueue;
 import com.hackatum.swipewatcher.ui.main.Backend.Watchlist;
