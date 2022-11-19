@@ -15,7 +15,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-class Watchable implements Comparable<Watchable> {
+class MovieObject implements Comparable<MovieObject> {
     private  String otitle;
     private String title;
     private String actors;
@@ -25,7 +25,7 @@ class Watchable implements Comparable<Watchable> {
     private int serie;
 
     //TODO
-    public Watchable () {
+    public MovieObject () {
         //do something with actors to put them in array
     }
 
@@ -67,13 +67,13 @@ class Watchable implements Comparable<Watchable> {
     }
 
     @Override
-    public int compareTo(Watchable o) {
+    public int compareTo(MovieObject o) {
         return o.getPriority() - priority;
     }
 }
 
 public class LoadData {
-    public static List<Watchable> loadDataFromJson(String file) {
+    public static List<MovieObject> loadDataFromJson(String file) {
 
         //String file = "src/main/streampicker/ap.json";
 
@@ -85,11 +85,11 @@ public class LoadData {
         }
 
         Gson gson = new Gson();
-        Watchable[] watchables0 = gson.fromJson(json, Watchable[].class);
+        MovieObject[] watchables0 = gson.fromJson(json, MovieObject[].class);
 
-        List<Watchable> watchables = new ArrayList<>(Arrays.asList(watchables0));
+        List<MovieObject> watchables = new ArrayList<>(Arrays.asList(watchables0));
 
-        watchables=watchables.stream().filter(distinctBy(Watchable::getTitle)).collect(Collectors.toList());
+        watchables=watchables.stream().filter(distinctBy(MovieObject::getTitle)).collect(Collectors.toList());
 
         return watchables;
     }
