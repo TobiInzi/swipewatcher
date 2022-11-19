@@ -8,7 +8,6 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.widget.ImageButton;
 
 import com.hackatum.swipewatcher.ui.main.MainAdapter;
-import com.hackatum.swipewatcher.ui.main.MovieObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MovieObject.createObjects();
+        //MovieObject.createObjects();
         ViewPager2 swiper = findViewById(R.id.main_swiper);
         MainAdapter adapter = new MainAdapter(this);
         swiper.setAdapter(adapter);
