@@ -20,8 +20,8 @@ public class PrioQueue {
 	}
 
 	// adds liked object to watchlist and updates priorities
-	public void like() {
-		MovieObject liked = queue.poll();
+	public void like(MovieObject movie) {
+		MovieObject liked = movie;
 		watchlist.add(liked);
 		ArrayList<String> actors = liked.getActors();
 		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
@@ -40,8 +40,8 @@ public class PrioQueue {
 	}
 
 	// removes element from queue
-	public void dislike() {
-		MovieObject disliked = queue.poll();
+	public void dislike(MovieObject movie) {
+		MovieObject disliked = movie;
 		ArrayList<String> actors = disliked.getActors();
 		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
 		int size = queue.size();
@@ -67,9 +67,6 @@ public class PrioQueue {
 		int size = queue.size();
 		for (int i = 0; i < size; i++) {
 			MovieObject current = queue.poll();
-			if (current.getFSK() <= age) {
-				temp.add(current);
-			}
 
 		}
 		queue = temp;
