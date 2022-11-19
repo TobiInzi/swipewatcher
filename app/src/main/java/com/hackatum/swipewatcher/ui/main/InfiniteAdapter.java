@@ -52,11 +52,19 @@ public class InfiniteAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater layoutInflater = LayoutInflater.from(mainActivity);
         view = layoutInflater.inflate(R.layout.fragment_content, container, false);
-
+        TextView text = view.findViewById(R.id.content_text);
+        if (true) {
+            text.setText("Game of Thrones");
+        }
         TextView text2 = view.findViewById(R.id.content_text_2);
-
+        if (true) {
+            //text2.setText(old.getDescription());
+            text2.setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore...");
+        }
         image = view.findViewById(R.id.content_image);
-        new DownloadImage().execute("https://i.imgur.com/CQzlM.jpg");
+        image.setImageResource(R.drawable.game_of_thrones);
+        image.setImageAlpha(230);
+        //new DownloadImage().execute("https://i.imgur.com/CQzlM.jpg");
         container.addView(view, 0);
         return view;
     }

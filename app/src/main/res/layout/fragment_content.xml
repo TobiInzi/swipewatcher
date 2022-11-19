@@ -27,7 +27,72 @@
         android:textColor="@color/white"
         android:background="@drawable/rounded_border_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/content_text_2"/>
+        app:layout_constraintBottom_toTopOf="@id/content_year"/>
+
+    <TextView
+        android:id="@+id/content_year"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2022"
+        android:background="@drawable/rounded_border_text"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="12dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/content_text_2"
+    />
+
+    <TextView
+        android:id="@+id/content_fsk"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="18"
+        android:paddingHorizontal="12dp"
+        android:background="@drawable/rounded_border_text"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:paddingVertical="4dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/content_year"
+        app:layout_constraintBottom_toTopOf="@id/content_text_2"
+    />
+
+    <TextView
+        android:id="@+id/content_type"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Series"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        android:background="@drawable/rounded_border_text"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/content_fsk"
+        app:layout_constraintBottom_toTopOf="@id/content_text_2"
+        />
+
+    <TextView
+        android:id="@+id/content_seasons_dauer"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 Seasons"
+        android:paddingHorizontal="12dp"
+        android:background="@drawable/rounded_border_text"
+        android:layout_marginBottom="12dp"
+        android:textSize="16sp"
+        android:paddingVertical="4dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/content_text_2"
+        />
+
     <TextView
         android:id="@+id/content_text_2"
         android:layout_width="match_parent"

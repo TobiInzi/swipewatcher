@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:background="@color/white"
         android:padding="10dp"
-        android:src="@drawable/ic_tv_solid2"
+        android:src="@drawable/ic_tv_solid3"
         android:layout_weight="1" />
 
     <ImageButton

@@ -19,18 +19,27 @@ class MovieObject implements Comparable<MovieObject> {
     private  String otitle;
     private String title;
     private String actors;
-    private String[] actorsArray;
-    private int priority;
+    private List<String> actorsList;
+    private double priority;
     private String id;
     private int serie;
+    private int season;
+    private int year;
 
-    //TODO
     public MovieObject () {
-        //do something with actors to put them in array
+        this.actorsList = Arrays.stream(actors.split(",")).collect(Collectors.toList());
+    }
+
+    public int getReleaseDate() {
+        return year;
+    }
+
+    public int getSeason() {
+        return season;
     }
 
     public ArrayList<String> getActors() {
-        return null;
+        return (ArrayList<String>) actorsList;
     }
 
     public int getFSK() {
@@ -45,11 +54,11 @@ class MovieObject implements Comparable<MovieObject> {
         priority++;
     }
 
-    public int getPriority() {
+    public double getPriority() {
         return priority;
     }
 
-    public void setPriority(int val) {
+    public void setPriority(double val) {
         priority = val;
     }
 
@@ -68,14 +77,18 @@ class MovieObject implements Comparable<MovieObject> {
 
     @Override
     public int compareTo(MovieObject o) {
-        return o.getPriority() - priority;
+        if (o.getPriority() > this.getPriority()) {
+            return 1;
+        } else if (o.getPriority() < this.getPriority()) {
+            return -1;
+        }
+        return 0;
     }
 }
 
 public class LoadData {
     public static List<MovieObject> loadDataFromJson(String file) {
 
-        //String file = "src/main/streampicker/ap.json";
 
         String json = null;
         try {
@@ -94,11 +107,28 @@ public class LoadData {
         return watchables;
     }
 
+    public static List<MovieObject> loadAllData() {
+
+        List<MovieObject> watchables = new ArrayList<>();
+
+        watchables.addAll(loadDataFromJson("src/main/streampicker/ap.json"));
+        watchables.addAll(loadDataFromJson("src/main/streampicker/dp.json"));
+        watchables.addAll(loadDataFromJson("src/main/streampicker/nf.json"));
+        watchables.addAll(loadDataFromJson("src/main/streampicker/tn.json"));
+
+        return watchables;
+
+    }
+
+
+
 
     private static <T> Predicate<T> distinctBy(Function<? super T, ?> f) {
         Set<Object> objects = new HashSet<>();
         return t -> objects.add(f.apply(t));
     }
 
-
+    public static void main(String[] args) {
+        loadAllData();
+    }
 }
