@@ -15,19 +15,7 @@ public class Networking {
 
 
     private static final String URL = "http://131.159.210.198:8080";
-    private static final String extrading = "showLiked";
 
-    public static void main(String[] args) throws IOException {
-        addLiked("Star Wars I");
-        addLiked("Andor");
-        addLiked("Hulk 1");
-
-        System.out.println(isMatch("Star Wars II"));
-        System.out.println(isMatch("Star Wars I"));
-
-
-
-    }
 
     public static boolean isMatch(String title) throws IOException {
         title = title.replaceAll(" ", "");
@@ -57,8 +45,7 @@ public class Networking {
         HttpURLConnection httpURLConnection = (HttpURLConnection) obj.openConnection();
         httpURLConnection.setRequestMethod("GET");
         int responseCode = httpURLConnection.getResponseCode();
-        // System.out.println("GET Response Code :: " + responseCode);
-        if (responseCode == HttpURLConnection.HTTP_OK) { // success
+        if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
             String inputLine;
             StringBuilder response = new StringBuilder();
