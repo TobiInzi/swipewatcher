@@ -25,6 +25,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.hackatum.swipewatcher.MainActivity;
 import com.hackatum.swipewatcher.R;
+import com.hackatum.swipewatcher.ui.main.Backend.*;
+import com.hackatum.swipewatcher.ui.main.Backend.PrioQueue;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -49,16 +51,23 @@ public class InfiniteAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        PrioQueue queue = MainActivity.queue;
+        MovieObject movie = queue.getQueue().poll();
+        MovieObject nextMovie = queue.getQueue().peek();
+        if(currentPosition>position){
+            queue.like(movie);
+        } else {
+            queue.dislike(movie);
+        }
         LayoutInflater layoutInflater = LayoutInflater.from(mainActivity);
         view = layoutInflater.inflate(R.layout.fragment_content, container, false);
         TextView text = view.findViewById(R.id.content_text);
         if (true) {
-            text.setText("Game of Thrones");
+            text.setText(nextMovie.getTitle());
         }
         TextView text2 = view.findViewById(R.id.content_text_2);
         if (true) {
             //text2.setText(old.getDescription());
-            text2.setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore...");
         }
         image = view.findViewById(R.id.content_image);
         setImage();
