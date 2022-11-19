@@ -37,7 +37,7 @@ import java.net.URL;
 public class InfiniteAdapter extends PagerAdapter {
 
     public int lastPosition;
-    public int currentPosition;
+    public int currentPosition = 500000;
     private SwipeFragment parent;
     private MainActivity mainActivity;
     private ImageView backgroundImage;
@@ -51,28 +51,28 @@ public class InfiniteAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        Log.e("initiate","initiate item");
         PrioQueue queue = MainActivity.queue;
         MovieObject movie = queue.getQueue().poll();
         MovieObject nextMovie = queue.getQueue().peek();
         if(currentPosition>position){
+            Log.e("initiate","like tb called");
             queue.like(movie);
         } else {
             queue.dislike(movie);
         }
+        currentPosition = position;
         LayoutInflater layoutInflater = LayoutInflater.from(mainActivity);
         view = layoutInflater.inflate(R.layout.fragment_content, container, false);
+
         TextView text = view.findViewById(R.id.content_text);
-        if (true) {
-            text.setText(nextMovie.getTitle());
-        }
+        text.setText(nextMovie.getTitle());
         TextView text2 = view.findViewById(R.id.content_text_2);
-        if (true) {
-            //text2.setText(old.getDescription());
-        }
+        text2.setText(String.valueOf(nextMovie.getPriority()));
+
         image = view.findViewById(R.id.content_image);
         setImage();
         image.setImageAlpha(230);
-        //new DownloadImage().execute("https://i.imgur.com/CQzlM.jpg");
         container.addView(view, 0);
         return view;
     }

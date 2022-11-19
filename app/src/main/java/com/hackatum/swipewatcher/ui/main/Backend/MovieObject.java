@@ -28,11 +28,11 @@ public class MovieObject implements Comparable<MovieObject> {
     }
 
     public void lowerPrio() {
-        priority = priority - 0.1;
+        priority = priority - 50;
     }
 
     public void higherPrio() {
-        priority = priority + 0.1;
+        priority = priority + 50;
     }
 
     public double getPriority() {
