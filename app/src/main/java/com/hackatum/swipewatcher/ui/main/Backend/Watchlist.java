@@ -4,9 +4,9 @@ import java.nio.file.Watchable;
 import java.util.ArrayList;
 
 public class Watchlist {
-	private ArrayList<Watchable> watchlist;
+	private ArrayList<String> watchlist;
 
 	public Watchlist() {
-		ArrayList<Watchable> watchlist = new ArrayList<>();
+		ArrayList<String> watchlist = new ArrayList<>();
 	}
 }
