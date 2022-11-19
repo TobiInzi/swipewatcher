@@ -6,20 +6,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.widget.ImageButton;
-
+import com.hackatum.*;
+import com.hackatum.swipewatcher.ui.main.Backend.LoadData;
+import com.hackatum.swipewatcher.ui.main.Backend.MovieObject;
+import com.hackatum.swipewatcher.ui.main.Backend.PreferenceList;
+import com.hackatum.swipewatcher.ui.main.Backend.PrioQueue;
+import com.hackatum.swipewatcher.ui.main.Backend.Watchlist;
 import com.hackatum.swipewatcher.ui.main.MainAdapter;
 
-import org.chromium.net.CronetEngine;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public CronetEngine engine;
+    public static Watchlist watchlist;
+    public static PreferenceList preflist;
+    public static PrioQueue queue; //GetAllData()
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        watchlist = new Watchlist();
+        preflist = new PreferenceList(0,0,0,"english");
+        queue = new PrioQueue(LoadData.getData(this),preflist);
         setContentView(R.layout.activity_main);
-        //MovieObject.createObjects();
         ViewPager2 swiper = findViewById(R.id.main_swiper);
         MainAdapter adapter = new MainAdapter(this);
         swiper.setAdapter(adapter);
@@ -30,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton friend = findViewById(R.id.button_double);
         ImageButton settings = findViewById(R.id.button_settings);
         ImageButton list = findViewById(R.id.button_list);
+
         tv.setOnClickListener(view -> {
             swiper.setCurrentItem(0);
             tv.setImageResource(R.drawable.ic_tv_solid3);
