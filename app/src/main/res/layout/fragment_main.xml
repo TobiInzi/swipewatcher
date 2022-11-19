@@ -15,6 +15,32 @@
         android:translationZ="-5dp"
     />
 
+    <ImageButton
+        android:id="@+id/button_star"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone"
+        android:background="@drawable/rounded_border_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_like"
+        android:src="@drawable/ic_heart_solid"
+    />
+
+    <ImageButton
+        android:id="@+id/button_like"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="416dp"
+        android:layout_marginEnd="36dp"
+        android:visibility="gone"
+        android:background="@drawable/rounded_border_button"
+        android:src="@drawable/ic_heart_solid"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
     <!--<include
         layout="@layout/other_button_bar"
         android:layout_height="50dp"

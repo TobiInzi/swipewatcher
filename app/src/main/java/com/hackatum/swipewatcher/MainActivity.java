@@ -9,9 +9,11 @@ import android.widget.ImageButton;
 
 import com.hackatum.swipewatcher.ui.main.MainAdapter;
 
+import org.chromium.net.CronetEngine;
+
 public class MainActivity extends AppCompatActivity {
 
-
+    public CronetEngine engine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         tv.setOnClickListener(view -> {
             swiper.setCurrentItem(0);
             tv.setImageResource(R.drawable.ic_tv_solid3);
-            comment.setImageResource(R.drawable.ic_comment_regular);
+            comment.setImageResource(R.drawable.ic_comment_solid);
             friend.setImageResource(R.drawable.ic_user_group_solid);
             list.setImageResource(R.drawable.ic_list_solid);
             settings.setImageResource(R.drawable.ic_gear_solid);
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         comment.setOnClickListener(view -> {
             swiper.setCurrentItem(1);
             tv.setImageResource(R.drawable.ic_tv_solid2);
-            comment.setImageResource(R.drawable.ic_comment_regular3);
+            comment.setImageResource(R.drawable.ic_comment_solid3);
             friend.setImageResource(R.drawable.ic_user_group_solid);
             list.setImageResource(R.drawable.ic_list_solid);
             settings.setImageResource(R.drawable.ic_gear_solid);
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         friend.setOnClickListener(view -> {
             swiper.setCurrentItem(2);
             tv.setImageResource(R.drawable.ic_tv_solid2);
-            comment.setImageResource(R.drawable.ic_comment_regular);
+            comment.setImageResource(R.drawable.ic_comment_solid);
             friend.setImageResource(R.drawable.ic_user_group_solid3);
             list.setImageResource(R.drawable.ic_list_solid);
             settings.setImageResource(R.drawable.ic_gear_solid);
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         list.setOnClickListener(view -> {
             swiper.setCurrentItem(3);
             tv.setImageResource(R.drawable.ic_tv_solid2);
-            comment.setImageResource(R.drawable.ic_comment_regular);
+            comment.setImageResource(R.drawable.ic_comment_solid);
             friend.setImageResource(R.drawable.ic_user_group_solid);
             list.setImageResource(R.drawable.ic_list_solid3);
             settings.setImageResource(R.drawable.ic_gear_solid);
@@ -63,10 +65,11 @@ public class MainActivity extends AppCompatActivity {
         settings.setOnClickListener(view -> {
             swiper.setCurrentItem(4);
             tv.setImageResource(R.drawable.ic_tv_solid2);
-            comment.setImageResource(R.drawable.ic_comment_regular);
+            comment.setImageResource(R.drawable.ic_comment_solid);
             friend.setImageResource(R.drawable.ic_user_group_solid);
             list.setImageResource(R.drawable.ic_list_solid);
             settings.setImageResource(R.drawable.ic_gear_solid3);
         });
+
     }
 }

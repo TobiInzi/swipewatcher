@@ -61,7 +61,7 @@ public class InfiniteAdapter extends PagerAdapter {
             text2.setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore...");
         }
         image = view.findViewById(R.id.content_image);
-        image.setImageResource(R.drawable.game_of_thrones);
+        setImage();
         image.setImageAlpha(230);
         //new DownloadImage().execute("https://i.imgur.com/CQzlM.jpg");
         container.addView(view, 0);
@@ -83,16 +83,22 @@ public class InfiniteAdapter extends PagerAdapter {
         ((ViewPager) container).removeView((View) object);
     }
 
-    // You can set a temporary background here
-    //image.setImageResource(null);
-    /**
-     * Simple functin to set a Drawable to the image View
-     * @param drawable
-     */
-    private void setImage(Drawable drawable)
+    private void setImage()
     {
-        image.setImageDrawable(drawable);
-        image.setImageAlpha(150);
+        switch((int) (Math.random() * 12)) {
+            case 0: {image.setImageResource(R.drawable.movie1); break;}
+            case 1: {image.setImageResource(R.drawable.movie2); break;}
+            case 2: {image.setImageResource(R.drawable.movie3); break;}
+            case 3: {image.setImageResource(R.drawable.movie4); break;}
+            case 4: {image.setImageResource(R.drawable.movie5); break;}
+            case 5: {image.setImageResource(R.drawable.movie6); break;}
+            case 6: {image.setImageResource(R.drawable.movie7); break;}
+            case 7: {image.setImageResource(R.drawable.movie8); break;}
+            case 8: {image.setImageResource(R.drawable.movie9); break;}
+            case 9: {image.setImageResource(R.drawable.movie10); break;}
+            case 10: {image.setImageResource(R.drawable.movie11); break;}
+            default: {image.setImageResource(R.drawable.movie12); break;}
+        }
     }
     // Start the DownloadImage task with the given url
     public class DownloadImage extends AsyncTask<String, Integer, Drawable> {
@@ -107,10 +113,6 @@ public class InfiniteAdapter extends PagerAdapter {
          * Called after the image has been downloaded
          * -> this calls a function on the main thread again
          */
-        protected void onPostExecute(Drawable image)
-        {
-            setImage(image);
-        }
 
 
         /**
