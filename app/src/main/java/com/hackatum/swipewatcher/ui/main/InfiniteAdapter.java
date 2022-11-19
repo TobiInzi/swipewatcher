@@ -41,9 +41,6 @@ public class InfiniteAdapter extends PagerAdapter {
     private ImageView backgroundImage;
     private View view;
     private ImageView image;
-    private MovieObject old;
-    private MovieObject newer;
-    private MovieObject[] tiles = new MovieObject[3];
 
     public InfiniteAdapter(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -54,25 +51,6 @@ public class InfiniteAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater layoutInflater = LayoutInflater.from(mainActivity);
         view = layoutInflater.inflate(R.layout.fragment_content, container, false);
-        if (old == null) {
-            MovieObject.getNext();
-        } else {
-            old = newer;
-        }
-        newer = MovieObject.getNext();
-        if (position % 3 == 0) {
-            tiles[0] = old;
-            tiles[1] = newer;
-            tiles[2] = newer;
-        } else if (position % 3 == 1) {
-            tiles[0] = newer;
-            tiles[1] = old;
-            tiles[2] = newer;
-        } else {
-            tiles[0] = newer;
-            tiles[1] = newer;
-            tiles[2] = old;
-        }
         TextView text = view.findViewById(R.id.content_text);
         if (true) {
             text.setText("Game of Thrones");
@@ -80,7 +58,7 @@ public class InfiniteAdapter extends PagerAdapter {
         TextView text2 = view.findViewById(R.id.content_text_2);
         if (true) {
             //text2.setText(old.getDescription());
-            text2.setText("Game of thrrones is a very cool series with 2 or 3 actors tbh fsjafjdsajf djg gadsg fg ag asdb fsa fd");
+            text2.setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore...");
         }
         image = view.findViewById(R.id.content_image);
         image.setImageResource(R.drawable.game_of_thrones);

@@ -23,7 +23,7 @@
             android:textColor="@color/purple_200"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:drawablePadding="10dp"
-            app:drawableLeftCompat="@drawable/icon12312" />
+            app:drawableLeftCompat="@drawable/ic_tv_solid" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
