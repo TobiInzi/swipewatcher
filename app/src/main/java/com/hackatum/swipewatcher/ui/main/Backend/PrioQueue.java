@@ -12,7 +12,7 @@ public class PrioQueue {
 	public PrioQueue(ArrayList<MovieObject> data, PreferenceList list) {
 		queue = new PriorityQueue<>();
 		for (MovieObject watchable : data) {
-			watchable.setPriority((int) (Math.random() * 10));
+			watchable.setPriority(Math.random());
 			queue.add(watchable);
 		}
 		watchlist = new ArrayList<>();
