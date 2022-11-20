@@ -33,12 +33,15 @@ public class PrioQueue {
 
 	// adds liked object to watchlist and updates priorities
 	public void like(MovieObject movie) {
+		if (movie == null) {
+			return;
+		}
 		Thread thread = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
 					boolean in = Networking.addLiked(movie.getTitle());
-					if (true) {
+					if (in) {
 						matchedList.add(movie);
 						Snackbar.make(mainActivity, mainActivity.findViewById(R.id.main_swiper), "You have a match!", Snackbar.LENGTH_LONG).setAction("Take a look", new View.OnClickListener() {
 							@Override
@@ -56,6 +59,9 @@ public class PrioQueue {
 		thread.start();
 
 		MovieObject liked = movie;
+		if (liked == null) {
+			return;
+		}
 		watchlist.add(liked.getTitle());
 		ArrayList<String> actors = liked.getActors();
 		PriorityQueue<MovieObject> temp = new PriorityQueue<>();

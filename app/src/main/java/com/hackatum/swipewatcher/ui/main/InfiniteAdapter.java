@@ -65,12 +65,17 @@ public class InfiniteAdapter extends PagerAdapter {
             queue.dislike(movie);
         }
         MovieObject nextMovie = queue.getQueue().peek();
+
         currentPosition = position;
         LayoutInflater layoutInflater = LayoutInflater.from(mainActivity);
         view = layoutInflater.inflate(R.layout.fragment_content, container, false);
 
         TextView text = view.findViewById(R.id.content_text);
-        text.setText(nextMovie.getTitle().toUpperCase(Locale.ROOT));
+        if (nextMovie == null) {
+            text.setText("No more movies for you!");
+        } else {
+            text.setText(nextMovie.getTitle().toUpperCase(Locale.ROOT));
+        }
         TextView text2 = view.findViewById(R.id.content_text_2);
         text2.setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At ...");
         TextView textAge = view.findViewById(R.id.content_fsk);

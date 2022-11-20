@@ -28,6 +28,7 @@
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/drawable/ic_xmark_solid.xml" value="0.1" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/drawable/rounded_border.xml" value="0.194" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/drawable/rounded_border_button.xml" value="0.1" />
+        <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/drawable/rounded_border_movie.xml" value="0.1435" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/drawable/rounded_border_text.xml" value="0.1" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/app_bar_main.xml" value="0.3614583333333333" />
@@ -45,6 +46,7 @@
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/list_view_items.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/list_view_layout.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/main_content.xml" value="0.2558876811594203" />
+        <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/movie_entry.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/other_button_bar.xml" value="0.5" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/search_bar.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/Tobias/AndroidStudioProjects/SwipeWatcher/app/src/main/res/layout/settings_item.xml" value="0.5835351089588378" />
