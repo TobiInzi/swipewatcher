@@ -31,7 +31,6 @@ public class SwipeFragment extends Fragment {
     private static int newPosition;
     private InfiniteAdapter adapter;
     private ViewPager swiper;
-    private boolean firstTime = true;
     private MainActivity mainActivity;
 
 
@@ -45,12 +44,12 @@ public class SwipeFragment extends Fragment {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         swiper = view.findViewById(R.id.watch_swiper);
-        adapter = new InfiniteAdapter(mainActivity);
+        adapter = new InfiniteAdapter(mainActivity, swiper);
         swiper.setAdapter(adapter);
-        swiper.setCurrentItem(500_000_000, false);
-        firstTime = false;
+        swiper.setCurrentItem(600000, false);
         return view;
     }
+
 
     @Override
     public void onResume() {
