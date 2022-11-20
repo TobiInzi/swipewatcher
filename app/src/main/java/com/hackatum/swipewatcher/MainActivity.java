@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         preflist = new PreferenceList(0,0,0,"english");
-        queue = new PrioQueue(LoadData.getData(this),preflist, this);
+        //queue = new PrioQueue(LoadData.getData(this),preflist, this);
+        queue = new PrioQueue(LoadData.getCoupleData(this),preflist, this);
         watchlist = queue.getWatchlist();
         setContentView(R.layout.activity_main);
         ViewPager2 swiper = findViewById(R.id.main_swiper);
