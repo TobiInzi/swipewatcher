@@ -53,17 +53,12 @@ public class PrioQueue {
 								mainActivity.successful();
 							}
 						}).show();
+					}
 
-
-
-
-
-						for (String s : Networking.getLiked()) {
-							if (!watchlist.contains(s)) {
-								likedOther.add(s);
-							}
+					for (String s : Networking.getLiked()) {
+						if (!watchlist.contains(s)) {
+							likedOther.add(s);
 						}
-
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
