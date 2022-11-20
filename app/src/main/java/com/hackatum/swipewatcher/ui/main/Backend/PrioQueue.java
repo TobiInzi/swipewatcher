@@ -16,7 +16,7 @@ import java.util.PriorityQueue;
 public class PrioQueue {
 	private PriorityQueue<MovieObject> queue;
 	private ArrayList<String> watchlist;
-	private ArrayList<MovieObject> matchedList = new ArrayList<>();
+	public static ArrayList<MovieObject> matchedList = new ArrayList<>();
 	private PreferenceList pref;
 	private MainActivity mainActivity;
 
