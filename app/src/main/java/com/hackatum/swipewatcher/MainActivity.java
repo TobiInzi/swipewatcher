@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static void makeSnackbar() {
-
+    public void successful() {
+        ImageButton friend = findViewById(R.id.button_double);
+        friend.performClick();
     }
 }

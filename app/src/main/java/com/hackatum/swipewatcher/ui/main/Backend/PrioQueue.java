@@ -1,6 +1,8 @@
 package com.hackatum.swipewatcher.ui.main.Backend;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.hackatum.swipewatcher.MainActivity;
@@ -14,7 +16,7 @@ import java.util.PriorityQueue;
 public class PrioQueue {
 	private PriorityQueue<MovieObject> queue;
 	private ArrayList<String> watchlist;
-	private ArrayList<MovieObject> matchedList;
+	private ArrayList<MovieObject> matchedList = new ArrayList<>();
 	private PreferenceList pref;
 	private MainActivity mainActivity;
 
@@ -26,6 +28,7 @@ public class PrioQueue {
 		}
 		watchlist = new ArrayList<>();
 		pref = list;
+		this.mainActivity = mainActivity;
 	}
 
 	// adds liked object to watchlist and updates priorities
@@ -34,10 +37,16 @@ public class PrioQueue {
 			@Override
 			public void run() {
 				try {
-					Networking.addLiked(movie.getTitle());
-					if (Networking.isMatch(movie.getTitle())) {
+					boolean in = Networking.addLiked(movie.getTitle());
+					if (true) {
 						matchedList.add(movie);
-						Snackbar.make(mainActivity, mainActivity.findViewById(R.id.main_swiper), "You have a match!", Snackbar.ANIMATION_MODE_FADE).show();
+						Snackbar.make(mainActivity, mainActivity.findViewById(R.id.main_swiper), "You have a match!", Snackbar.LENGTH_LONG).setAction("Take a look", new View.OnClickListener() {
+							@Override
+							public void onClick(View view) {
+								mainActivity.successful();
+							}
+						}).show();
+						//Toast.makeText(mainActivity, "Nice", Toast.LENGTH_SHORT).show();
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
