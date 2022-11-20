@@ -17,6 +17,8 @@ public class MainAdapter extends FragmentStateAdapter {
     public MainAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
         swipe = new SwipeFragment((MainActivity) fragmentActivity);
+        comment = new CommentFragment((MainActivity) fragmentActivity);
+        settings = new SettingsFragment((MainActivity) fragmentActivity);
         list = new ListFragment((MainActivity) fragmentActivity);
     }
 
@@ -29,6 +31,8 @@ public class MainAdapter extends FragmentStateAdapter {
     }
 
     private Fragment swipe;
+    private Fragment comment;
+    private Fragment settings;
     private Fragment list;
 
     @NonNull
@@ -38,7 +42,7 @@ public class MainAdapter extends FragmentStateAdapter {
             return swipe;
         }
         if (position == 1) {
-            return new CommentFragment();
+            return comment;
         }
         if (position == 2) {
             return new DoubleFragment();
@@ -47,7 +51,7 @@ public class MainAdapter extends FragmentStateAdapter {
             return list;
         }
         if (position == 4) {
-            return new SettingsFragment();
+            return settings;
         }
         return null;
     }

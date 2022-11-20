@@ -33,6 +33,8 @@ import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Locale;
+import java.util.Random;
 
 public class InfiniteAdapter extends PagerAdapter {
 
@@ -43,6 +45,7 @@ public class InfiniteAdapter extends PagerAdapter {
     private ImageView backgroundImage;
     private View view;
     private ImageView image;
+    private Random random = new Random();
 
     public InfiniteAdapter(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -67,15 +70,46 @@ public class InfiniteAdapter extends PagerAdapter {
         view = layoutInflater.inflate(R.layout.fragment_content, container, false);
 
         TextView text = view.findViewById(R.id.content_text);
-        text.setText(nextMovie.getTitle());
+        text.setText(nextMovie.getTitle().toUpperCase(Locale.ROOT));
         TextView text2 = view.findViewById(R.id.content_text_2);
-        text2.setText(String.valueOf(nextMovie.getPriority()));
+        text2.setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At ...");
+        TextView textAge = view.findViewById(R.id.content_fsk);
+        textAge.setText(getFSK());
+        TextView textType = view.findViewById(R.id.content_type);
+        TextView textSeasons = view.findViewById(R.id.content_seasons_dauer);
+        if (random.nextDouble() < 0.5) {
+            textType.setText("Movie");
+            String tmp = "Time 1:" + (Math.abs(random.nextInt()) % 50 + 10);
+            textSeasons.setText(tmp);
+        } else {
+            textType.setText("Series");
+            String tmp = (random.nextInt() % 4 + 4) + " Seasons";
+            textSeasons.setText(tmp);
+        }
 
+        TextView textYear = view.findViewById(R.id.content_year);
+        int i = 1970 + (Math.abs(random.nextInt()) % 43);
+        String tmp = String.valueOf(i);
+        textYear.setText(tmp);
         image = view.findViewById(R.id.content_image);
         setImage();
         image.setImageAlpha(230);
         container.addView(view, 0);
         return view;
+    }
+
+    private String getFSK() {
+        double next = random.nextDouble();
+        if (next < 0.25) {
+            return "12";
+        }
+        if (next < 0.5) {
+            return "16";
+        }
+        if (next < 0.75) {
+            return "6";
+        }
+        return "18";
     }
 
     @Override
