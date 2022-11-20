@@ -110,4 +110,6 @@ public class PrioQueue {
 		this.watchlist = watchlist;
 	}
 
+	public ArrayList<MovieObject> getMatchedList() {return matchedList;}
+
 }
