@@ -1,5 +1,7 @@
 package com.hackatum.swipewatcher.ui.main;
 
+import android.view.Choreographer;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -17,6 +19,7 @@ public class MainAdapter extends FragmentStateAdapter {
         swipe = new SwipeFragment((MainActivity) fragmentActivity);
         comment = new CommentFragment((MainActivity) fragmentActivity);
         settings = new SettingsFragment((MainActivity) fragmentActivity);
+        list = new ListFragment((MainActivity) fragmentActivity);
     }
 
     public MainAdapter(@NonNull Fragment fragment) {
@@ -30,6 +33,7 @@ public class MainAdapter extends FragmentStateAdapter {
     private Fragment swipe;
     private Fragment comment;
     private Fragment settings;
+    private Fragment list;
 
     @NonNull
     @Override
@@ -44,7 +48,7 @@ public class MainAdapter extends FragmentStateAdapter {
             return new DoubleFragment();
         }
         if (position == 3) {
-            return new ListFragment();
+            return list;
         }
         if (position == 4) {
             return settings;
