@@ -19,8 +19,7 @@ import java.util.ArrayList;
 public class ListFragment extends Fragment {
 
     private ArrayAdapter adapter;
-    private ListView list;
-    private ArrayList<String> watchlist = new ArrayList<>();
+    private static ArrayList<String> watchlist = new ArrayList<>();
     private MainActivity mainActivity;
 
     public ListFragment(MainActivity mainActivity) {
@@ -31,14 +30,18 @@ public class ListFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        //View view = inflater.inflate(R.layout.fragment_main, container, false);
-        //list = view.findViewById(R.id.listview);
-        //adapter = new ArrayAdapter(mainActivity,R.layout.fragment_list, new ArrayList<>());
-        //list.setAdapter(adapter);
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        ListView list = view.findViewById(R.id.listview);
+        adapter = new ArrayAdapter(mainActivity,R.layout.activity_list_view,R.id.textView, watchlist);
+        list.setAdapter(adapter);
         return list;
     }
 
     public ArrayList<String> getWatchlist() {
         return watchlist;
+    }
+
+    public static void setWatchlist(ArrayList<String> w) {
+        watchlist = w;
     }
 }

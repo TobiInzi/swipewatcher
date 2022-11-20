@@ -64,6 +64,7 @@ public class InfiniteAdapter extends PagerAdapter {
         } else {
             queue.dislike(movie);
         }
+        ListFragment.setWatchlist(queue.getWatchlist());
         MovieObject nextMovie = queue.getQueue().peek();
         currentPosition = position;
         LayoutInflater layoutInflater = LayoutInflater.from(mainActivity);
