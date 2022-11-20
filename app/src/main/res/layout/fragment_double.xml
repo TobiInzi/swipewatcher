@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
     <!--<TextView
@@ -13,9 +14,55 @@
         android:textSize="25sp"
         android:text="No matches yet..."/> -->
 
-    <ListView
-        android:id="@+id/movie_list"
+    <include
+        android:id="@+id/first_movie"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="100dp"
+        layout="@layout/movie_entry"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <include
+        android:id="@+id/second_movie"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        layout="@layout/movie_entry"
+        app:layout_constraintTop_toBottomOf="@id/first_movie"
+        />
+    <include
+        android:id="@+id/third_movie"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        layout="@layout/movie_entry"
+        app:layout_constraintTop_toBottomOf="@id/second_movie"
+        />
+    <include
+        android:id="@+id/fourth_movie"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        layout="@layout/movie_entry"
+        app:layout_constraintTop_toBottomOf="@id/third_movie"
+        />
+    <include
+        android:id="@+id/fifth_movie"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        layout="@layout/movie_entry"
+        app:layout_constraintTop_toBottomOf="@id/fourth_movie"
+        />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,7 @@
 
 
     <ImageButton
+        android:id="@+id/outside_button"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginEnd="32dp"

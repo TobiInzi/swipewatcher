@@ -52,6 +52,12 @@ public class SwipeFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
     /*public ContentFragment positionChanged(int position) {
         if (position == 0) {
             if (firstTime) {
