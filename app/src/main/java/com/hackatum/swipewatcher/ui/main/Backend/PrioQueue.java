@@ -36,7 +36,6 @@ public class PrioQueue {
 		});
 		thread.start();
 
-
 		MovieObject liked = movie;
 		watchlist.add(liked.getTitle());
 		ArrayList<String> actors = liked.getActors();
