@@ -10,6 +10,7 @@ import java.util.PriorityQueue;
 public class PrioQueue {
 	private PriorityQueue<MovieObject> queue;
 	private ArrayList<String> watchlist;
+	private ArrayList<MovieObject> matchedList;
 	private PreferenceList pref;
 
 	public PrioQueue(ArrayList<MovieObject> data, PreferenceList list) {
@@ -29,6 +30,10 @@ public class PrioQueue {
 			public void run() {
 				try {
 					Networking.addLiked(movie.getTitle());
+					if (Networking.isMatch(movie.getTitle())) {
+						matchedList.add(movie);
+						//SNACKBAR
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
