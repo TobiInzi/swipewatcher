@@ -13,13 +13,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 public class LoadData
 {
-    public static ArrayList<MovieObject> getData(MainActivity mainActivity)
-    {
+    public static ArrayList<MovieObject> getData(MainActivity mainActivity) {
         ArrayList<MovieObject> movies = new ArrayList<>();
         String line = "";
         String splitBy = ",";
-        try
-        {
+        try {
 //parsing a CSV file into BufferedReader class constructor
             AssetManager a = mainActivity.getAssets();
             BufferedReader br = new BufferedReader(new InputStreamReader((a.open("final_data.csv"))));
@@ -28,13 +26,29 @@ public class LoadData
                 String[] movie = line.split(splitBy);    // use comma as separator
                 movies.add(new MovieObject(movie));
             }
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return movies;
     }
+    public static ArrayList<MovieObject> getCoupleData(MainActivity mainActivity) {
+        ArrayList<MovieObject> movies = new ArrayList<>();
+        String line = "";
+        String splitBy = ",";
+        try {
+//parsing a CSV file into BufferedReader class constructor
+            AssetManager a = mainActivity.getAssets();
+            BufferedReader br = new BufferedReader(new InputStreamReader((a.open("couple_data.csv"))));
+            while ((line = br.readLine()) != null)   //returns a Boolean value
+            {
+                String[] movie = line.split(splitBy);    // use comma as separator
+                movies.add(new MovieObject(movie));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return movies;
 
 
+    }
 }
