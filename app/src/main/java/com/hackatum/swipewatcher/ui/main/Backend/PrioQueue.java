@@ -89,6 +89,7 @@ public class PrioQueue {
 				}
 			}
 
+
 			for (String s : likedOther) {
 				if (current.getTitle().equals(s)) {
 					current.setPriority(6969420);
