@@ -33,6 +33,8 @@ import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
@@ -50,6 +52,16 @@ public class InfiniteAdapter extends PagerAdapter {
         this.mainActivity = mainActivity;
     }
 
+    @Override
+    public void finishUpdate(@NonNull ViewGroup container) {
+        super.finishUpdate(container);
+    }
+
+    @Override
+    public void startUpdate(@NonNull ViewGroup container) {
+        super.startUpdate(container);
+    }
+
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
@@ -57,7 +69,6 @@ public class InfiniteAdapter extends PagerAdapter {
 
         PrioQueue queue = MainActivity.queue;
         MovieObject movie = queue.getQueue().poll();
-
         if(currentPosition>position){
             Log.e("initiate","like tb called");
             queue.like(movie);
