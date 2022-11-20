@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">i.imgur.com</domain>
+        <domain includeSubdomains="true">131.159.210.198</domain>
     </domain-config>
 </network-security-config>

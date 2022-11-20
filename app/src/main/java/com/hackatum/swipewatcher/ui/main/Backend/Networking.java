@@ -16,6 +16,9 @@ public class Networking {
 
     private static final String URL = "http://131.159.210.198:8080";
 
+    public static void main(String[] args) {
+        //addLiked("test");
+    }
 
     public static boolean isMatch(String title) throws IOException {
         title = title.replaceAll(" ", "");
