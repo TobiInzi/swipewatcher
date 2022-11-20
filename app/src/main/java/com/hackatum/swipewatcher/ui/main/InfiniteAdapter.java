@@ -57,13 +57,14 @@ public class InfiniteAdapter extends PagerAdapter {
         Log.e("initiate","initiate item");
         PrioQueue queue = MainActivity.queue;
         MovieObject movie = queue.getQueue().poll();
-        MovieObject nextMovie = queue.getQueue().peek();
+
         if(currentPosition>position){
             Log.e("initiate","like tb called");
             queue.like(movie);
         } else {
             queue.dislike(movie);
         }
+        MovieObject nextMovie = queue.getQueue().peek();
         currentPosition = position;
         LayoutInflater layoutInflater = LayoutInflater.from(mainActivity);
         view = layoutInflater.inflate(R.layout.fragment_content, container, false);
