@@ -1,20 +1,21 @@
 package com.hackatum.swipewatcher.ui.main.Backend;
 
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.hackatum.swipewatcher.MainActivity;
 import com.hackatum.swipewatcher.R;
 
 import java.io.IOException;
-import java.nio.file.Watchable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class PrioQueue {
 	private PriorityQueue<MovieObject> queue;
 	private ArrayList<String> watchlist;
-	private ArrayList<MovieObject> matchedList;
+	public static ArrayList<MovieObject> matchedList = new ArrayList<>();
 	private PreferenceList pref;
 	private MainActivity mainActivity;
 
@@ -26,18 +27,29 @@ public class PrioQueue {
 		}
 		watchlist = new ArrayList<>();
 		pref = list;
+		this.mainActivity = mainActivity;
 	}
 
 	// adds liked object to watchlist and updates priorities
 	public void like(MovieObject movie) {
+		if (movie == null) {
+			return;
+		}
 		Thread thread = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					Networking.addLiked(movie.getTitle());
-					if (Networking.isMatch(movie.getTitle())) {
+					boolean in = Networking.addLiked(movie.getTitle());
+					if (in) {
 						matchedList.add(movie);
-						Snackbar.make(mainActivity, mainActivity.findViewById(R.id.main_swiper), "You have a match!", Snackbar.ANIMATION_MODE_FADE).show();
+						Snackbar.make(mainActivity, mainActivity.findViewById(R.id.main_swiper), "You have a match!", Snackbar.LENGTH_LONG).setAction("Take a look", new View.OnClickListener() {
+							@Override
+							public void onClick(View view) {
+								mainActivity.successful();
+							}
+						}).show();
+
+
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -47,6 +59,9 @@ public class PrioQueue {
 		thread.start();
 
 		MovieObject liked = movie;
+		if (liked == null) {
+			return;
+		}
 		watchlist.add(liked.getTitle());
 		ArrayList<String> actors = liked.getActors();
 		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
@@ -67,6 +82,10 @@ public class PrioQueue {
 
 	// removes element from queue
 	public void dislike(MovieObject movie) {
+		if (movie == null) {
+			return;
+		}
+
 		MovieObject disliked = movie;
 		ArrayList<String> actors = disliked.getActors();
 		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
@@ -114,5 +133,7 @@ public class PrioQueue {
 	public void setWatchlist(ArrayList<String> watchlist) {
 		this.watchlist = watchlist;
 	}
+
+	public ArrayList<MovieObject> getMatchedList() {return matchedList;}
 
 }

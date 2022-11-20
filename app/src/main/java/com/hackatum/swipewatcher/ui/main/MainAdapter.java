@@ -20,6 +20,7 @@ public class MainAdapter extends FragmentStateAdapter {
         comment = new CommentFragment((MainActivity) fragmentActivity);
         settings = new SettingsFragment((MainActivity) fragmentActivity);
         list = new ListFragment((MainActivity) fragmentActivity);
+        doubleF = new DoubleFragment((MainActivity) fragmentActivity);
     }
 
     public MainAdapter(@NonNull Fragment fragment) {
@@ -34,6 +35,7 @@ public class MainAdapter extends FragmentStateAdapter {
     private Fragment comment;
     private Fragment settings;
     private Fragment list;
+    private Fragment doubleF;
 
     @NonNull
     @Override
@@ -45,7 +47,7 @@ public class MainAdapter extends FragmentStateAdapter {
             return comment;
         }
         if (position == 2) {
-            return new DoubleFragment();
+            return doubleF;
         }
         if (position == 3) {
             return list;
