@@ -2,15 +2,14 @@ package com.hackatum.swipewatcher.ui.main.Backend;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.hackatum.swipewatcher.MainActivity;
 import com.hackatum.swipewatcher.R;
 
 import java.io.IOException;
-import java.nio.file.Watchable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class PrioQueue {
@@ -49,7 +48,8 @@ public class PrioQueue {
 								mainActivity.successful();
 							}
 						}).show();
-						//Toast.makeText(mainActivity, "Nice", Toast.LENGTH_SHORT).show();
+
+
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -82,6 +82,10 @@ public class PrioQueue {
 
 	// removes element from queue
 	public void dislike(MovieObject movie) {
+		if (movie == null) {
+			return;
+		}
+
 		MovieObject disliked = movie;
 		ArrayList<String> actors = disliked.getActors();
 		PriorityQueue<MovieObject> temp = new PriorityQueue<>();
@@ -129,5 +133,7 @@ public class PrioQueue {
 	public void setWatchlist(ArrayList<String> watchlist) {
 		this.watchlist = watchlist;
 	}
+
+	public ArrayList<MovieObject> getMatchedList() {return matchedList;}
 
 }
