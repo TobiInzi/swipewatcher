@@ -1,5 +1,7 @@
 package com.hackatum.swipewatcher.ui.main.Backend;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -26,9 +28,10 @@ public class Networking {
         return result.equals("true");
     }
 
-    public static void addLiked(String title) throws IOException {
+    public static boolean addLiked(String title) throws IOException {
         title = title.replaceAll(" ", "");
-        sendHttpGETRequest("addLiked/" + title);
+        String result = sendHttpGETRequest("addLiked/" + title);
+        return result.equals("true");
     }
 
     public static ArrayList<String> getLiked() throws IOException {
