@@ -42,42 +42,37 @@ public class InfiniteAdapter extends PagerAdapter {
 
     public int lastPosition;
     public int currentPosition = 500000;
-    private ViewPager parent;
     private MainActivity mainActivity;
     private ImageView backgroundImage;
     private View view;
-    private View middle;
-    private View next;
-    private List<View> views = new LinkedList<>();
     private ImageView image;
     private Random random = new Random();
 
-    public InfiniteAdapter(MainActivity mainActivity, ViewPager parent) {
+    public InfiniteAdapter(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-        this.parent = parent;
     }
 
     @Override
     public void finishUpdate(@NonNull ViewGroup container) {
         super.finishUpdate(container);
-        Log.e("initiate","finish update");
     }
 
     @Override
     public void startUpdate(@NonNull ViewGroup container) {
         super.startUpdate(container);
-        Log.e("initiate","start update");
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         Log.e("initiate","initiate item");
+
         PrioQueue queue = MainActivity.queue;
         MovieObject movie = queue.getQueue().poll();
         if(currentPosition>position){
-            //Log.e("initiate","like tb called");
+            Log.e("initiate","like tb called");
             queue.like(movie);
+
         } else {
             queue.dislike(movie);
         }
@@ -118,7 +113,8 @@ public class InfiniteAdapter extends PagerAdapter {
         setImage();
         image.setImageAlpha(230);
         container.addView(view, 0);
-        views.add(view);
+
+
         return view;
     }
 
@@ -138,7 +134,7 @@ public class InfiniteAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 1_000_000;
+        return 1_000_000_000;
     }
 
     @Override
@@ -148,7 +144,7 @@ public class InfiniteAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        ((ViewPager) container).removeView((View) object);
+        container.removeView((View) object);
     }
 
     private void setImage()

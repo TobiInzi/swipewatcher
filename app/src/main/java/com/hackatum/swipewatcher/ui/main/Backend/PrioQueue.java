@@ -30,11 +30,16 @@ public class PrioQueue {
 		this.mainActivity = mainActivity;
 	}
 
+	public void remove(MovieObject o) {
+		queue.remove(o);
+	}
+
 	// adds liked object to watchlist and updates priorities
 	public void like(MovieObject movie) {
 		if (movie == null) {
 			return;
 		}
+		ArrayList<String> likedOther = new ArrayList<>();
 		Thread thread = new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -49,6 +54,15 @@ public class PrioQueue {
 							}
 						}).show();
 
+
+
+
+
+						for (String s : Networking.getLiked()) {
+							if (!watchlist.contains(s)) {
+								likedOther.add(s);
+							}
+						}
 
 					}
 				} catch (IOException e) {
@@ -74,6 +88,14 @@ public class PrioQueue {
 					current.higherPrio();
 				}
 			}
+
+
+			for (String s : likedOther) {
+				if (current.getTitle().equals(s)) {
+					current.setPriority(6969420);
+				}
+			}
+
 			temp.add(current);
 		}
 		Log.e("test","ololollo");
