@@ -40,7 +40,6 @@ public class InfiniteAdapter extends PagerAdapter {
 
     public int lastPosition;
     public int currentPosition = 500000;
-    private SwipeFragment parent;
     private MainActivity mainActivity;
     private ImageView backgroundImage;
     private View view;
@@ -55,12 +54,14 @@ public class InfiniteAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         Log.e("initiate","initiate item");
+
         PrioQueue queue = MainActivity.queue;
         MovieObject movie = queue.getQueue().poll();
 
         if(currentPosition>position){
             Log.e("initiate","like tb called");
             queue.like(movie);
+
         } else {
             queue.dislike(movie);
         }
@@ -101,6 +102,8 @@ public class InfiniteAdapter extends PagerAdapter {
         setImage();
         image.setImageAlpha(230);
         container.addView(view, 0);
+
+
         return view;
     }
 
@@ -130,7 +133,7 @@ public class InfiniteAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        ((ViewPager) container).removeView((View) object);
+        container.removeView((View) object);
     }
 
     private void setImage()
