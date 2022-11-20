@@ -2,6 +2,10 @@ package com.hackatum.swipewatcher.ui.main.Backend;
 
 import android.util.Log;
 
+import com.google.android.material.snackbar.Snackbar;
+import com.hackatum.swipewatcher.MainActivity;
+import com.hackatum.swipewatcher.R;
+
 import java.io.IOException;
 import java.nio.file.Watchable;
 import java.util.ArrayList;
@@ -12,8 +16,9 @@ public class PrioQueue {
 	private ArrayList<String> watchlist;
 	private ArrayList<MovieObject> matchedList;
 	private PreferenceList pref;
+	private MainActivity mainActivity;
 
-	public PrioQueue(ArrayList<MovieObject> data, PreferenceList list) {
+	public PrioQueue(ArrayList<MovieObject> data, PreferenceList list, MainActivity mainActivity) {
 		queue = new PriorityQueue<>();
 		for (MovieObject watchable : data) {
 			watchable.setPriority(Math.random());
@@ -32,7 +37,7 @@ public class PrioQueue {
 					Networking.addLiked(movie.getTitle());
 					if (Networking.isMatch(movie.getTitle())) {
 						matchedList.add(movie);
-						//SNACKBAR
+						Snackbar.make(mainActivity, mainActivity.findViewById(R.id.main_swiper), "You have a match!", Snackbar.ANIMATION_MODE_FADE).show();
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
